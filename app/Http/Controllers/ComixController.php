@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\comix;
 
 class ComixController extends Controller
 {
@@ -13,9 +14,10 @@ class ComixController extends Controller
      */
     public function index()
     {
-        $dati=config('datas');
+        $comixes=comix::All();
 
-        return view("comix.index", $dati);
+
+        return view("comix.index", compact('comixes'));
     }
 
     /**

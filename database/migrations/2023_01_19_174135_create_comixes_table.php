@@ -15,6 +15,11 @@ class CreateComixesTable extends Migration
     {
         Schema::create('comixes', function (Blueprint $table) {
             $table->id();
+            $table->string('title',100);
+            $table->text('description')->nullable();
+            $table->tinyInteger('price');
+            $table->string("date");
+            $table->string('type',100);
             $table->timestamps();
         });
     }
