@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <title>@yield("title")</title>
 </head>
+<header>
+
+    @include("components.header")
+
+</header>
 <body>
     @yield("main")
 </body>
