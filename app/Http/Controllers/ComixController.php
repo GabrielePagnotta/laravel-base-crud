@@ -71,7 +71,9 @@ class ComixController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comix=comix::findOrFail($id);
+
+      return view ('comix.edit', compact('comix'));
     }
 
     /**
@@ -83,7 +85,10 @@ class ComixController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $holding=$request->all();
+        $data=comix::findOrFail($id);
+        $data->update($holding);
+        return redirect()->route('comix.index')->with('success',"l'elemento è stato modificato correttamente");
     }
 
     /**

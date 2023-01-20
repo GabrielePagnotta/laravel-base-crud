@@ -3,6 +3,7 @@
 @section("main")
 @if(session('success'))
 <div class="bg-green-600 text-green-400 animate-pulse">{{session('success')}}</div>
+
 @endif
 <button class="bg-green-500 text-black rounded-md p-2 mt-2 hover:bg-green-800 hover:text-white animate-pulse">
    <a href="{{route('comix.create')}}">Add</a>
@@ -36,6 +37,7 @@
             @method('DELETE')
               <td><button><i class="fa-solid fa-square-minus text-red-700"></button></i></td>
           </form>
+          <td><a href="{{route('comix.edit',$elem->id)}}"><i class="fa-solid fa-pen"></i></a></td>
         </tr>
         @endforeach
     </tbody>
