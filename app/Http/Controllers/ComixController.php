@@ -39,7 +39,6 @@ class ComixController extends Controller
     public function store(Request $request)
     {
         $holding=$request->all();
-
         $new_request=new comix();
         $new_request->title=$holding["title"];
         $new_request->description=$holding["description"];
@@ -95,6 +94,8 @@ class ComixController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $array_comix=comix::findOrFail($id);
+        $array_comix->delete();
+        return redirect()->route('comix.index')->with('success',"l'elemento è stato eliminato correttamente");
     }
 }
